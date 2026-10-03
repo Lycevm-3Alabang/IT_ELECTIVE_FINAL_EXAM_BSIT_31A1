@@ -16,7 +16,7 @@ namespace IT_ELECTIVE_FINAL_EXAM_BSIT_31A1.Controllers
                 Section = "31E1",
                 Bio = "Hi, Im Raiza, and I'm passionate about gaming, painting, Cosplaying and creating new things. For me, building something means turning ideas and imagination into something meaningful that the others can enjoy and experience" +
                 "My goal is to create my own games, improve my creative Skills, and travel around the world while discovering new experience and inspiration.",
-                PhotoPath = "images/Osiana.jpg",
+                PhotoPath = "~/images/Osiana.jpg",
                 Email = "maemaekuroshiro@mail.com",
                 GitHubUrl = "https://github.com/raizaosiana",
                 LinkedInUrl = "https://linkedin.com/in/your-profile",   // or null
