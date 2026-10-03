@@ -10,6 +10,7 @@
     <Content Update="wwwroot\images\Krist.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Folder Include="Views\CaranganRafael\" />
     <Folder Include="wwwroot\images\" />
     <Folder Include="Views\Photos\" />
   </ItemGroup>
