@@ -13,7 +13,7 @@ namespace IT_ELECTIVE_FINAL_EXAM_BSIT_31A1.Controllers
                 FullName = "Kevin Clerck Roque",
                 Tagline = "Aspiring Full-Stack Developer",
                 Course = "BS Information Technology",
-                Section = "BSIT31A1",
+                Section = "31E1",
                 Bio = "I do digital art and programming",
                 PhotoPath = "~/images/Roque.jpg",
                 Email = "kcofficial14@email.com",
