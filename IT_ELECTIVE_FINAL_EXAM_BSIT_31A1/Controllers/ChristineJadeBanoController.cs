@@ -3,8 +3,8 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace IT_ELECTIVE_FINAL_EXAM_BSIT_31A1.Controllers
 {
-    [Classmate("Dela Cruz, Juan")]   // shown on the Home list; use "Last, First" so sorting is by surname
-    public class JuanDelaCruzController : Controller
+    [Classmate("Bano, Christine Jade N ")]   // shown on the Home list; use "Last, First" so sorting is by surname
+    public class ChristineJadeBanoController : Controller
     {
         public IActionResult Index()
         {
@@ -13,15 +13,9 @@ namespace IT_ELECTIVE_FINAL_EXAM_BSIT_31A1.Controllers
                 FullName = "Christine Jade Bano",
                 Tagline = "YOOOLOOOO",
                 Course = "BS Information Technology",
-                Section = "3A",
-                Bio = "Write 2–4 sentences about yourself: your interests, what you enjoy building, and your goals.",
-                PhotoPath = "~/images/juandelacruz.jpg",
-                Email = "juan@email.com",
-                GitHubUrl = "https://github.com/your-username",
-                LinkedInUrl = "https://www.linkedin.com/in/judiel-meguiel-mescallado-0ba736382/",   // or null
                 Section = "31E1",
                 Bio = "I am Jade u can call me Jade, and i am 20 yrs old and only girl in the family",
-                PhotoPath = "cat-cat-dance.png",
+                PhotoPath = "~/images/cat-cat-dance.png",
                 Email = "banochristinejade@gmail.com",
                 GitHubUrl = "https://github.com/jade-cmd06",
                 LinkedInUrl = "https://linkedin.com/in/your-profile",   // or null
