@@ -15,7 +15,7 @@ namespace IT_ELECTIVE_FINAL_EXAM_BSIT_31A1.Controllers
                 Course = "BS Information Technology",
                 Section = "31E1",
                 Bio = "I am a versatile IT student driven by a passion for exploring complex ideas, solving creative problems, and turning abstract concepts into practical solutions. This portfolio showcases my complete coursework, hands-on labs, and exams from Prelims to Pre-Finals following the Model-View-Controller (MVC) pattern.",
-                PhotoPath = "~",
+                PhotoPath = "~/images/SawMichael.jpg",
                 Email = "sawmichael32@gmail.com",
                 GitHubUrl = "https://github.com/sawmichael32-ctrl",
                 LinkedInUrl = "https://github.com/sawmichael32-ctrl",
