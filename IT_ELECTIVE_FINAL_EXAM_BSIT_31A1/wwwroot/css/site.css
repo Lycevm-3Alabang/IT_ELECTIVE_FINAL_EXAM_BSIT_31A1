@@ -1,22 +1,450 @@
+/* ============================================================
+   CLASS PORTFOLIO – site.css
+   Styles the existing Bootstrap markup. No view changes needed
+   (except Home/Index.cshtml for pagination).
+   ============================================================ */
+
+:root {
+    --bg: #f4f6fb;
+    --surface: #ffffff;
+    --text: #1c2333;
+    --muted: #6b7280;
+    --border: #e3e7ef;
+    --brand: #4f46e5;
+    --brand-2: #06b6d4;
+    --brand-soft: #eef0ff;
+    --shadow: 0 1px 2px rgba(16, 24, 40, .06), 0 10px 28px rgba(16, 24, 40, .08);
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --bg: #0f1220;
+        --surface: #171b2e;
+        --text: #e8eaf3;
+        --muted: #9aa3b8;
+        --border: #272d48;
+        --brand: #818cf8;
+        --brand-soft: #232852;
+        --shadow: 0 1px 2px rgba(0, 0, 0, .4), 0 10px 28px rgba(0, 0, 0, .3);
+    }
+}
+
+/* ---------- Base ---------- */
 html {
-  font-size: 14px;
+    font-size: 15px;
+    position: relative;
+    min-height: 100%;
 }
 
 @media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
-}
-
-.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
-  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
-}
-
-html {
-  position: relative;
-  min-height: 100%;
+    html {
+        font-size: 16px;
+    }
 }
 
 body {
-  margin-bottom: 60px;
+    font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+    margin-bottom: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+    body > .container {
+        flex: 1;
+    }
+
+a {
+    color: var(--brand);
+}
+
+.text-muted {
+    color: var(--muted) !important;
+}
+
+hr {
+    border-color: var(--border);
+    opacity: 1;
+}
+
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus,
+.form-control:focus, .form-check-input:focus {
+    box-shadow: 0 0 0 .15rem var(--surface), 0 0 0 .3rem var(--brand);
+}
+
+/* ---------- Navbar & footer ---------- */
+.navbar.bg-white {
+    background: var(--surface) !important;
+    border-color: var(--border) !important;
+    box-shadow: none;
+    position: sticky;
+    top: 0;
+    z-index: 50;
+}
+
+.navbar .navbar-brand {
+    font-weight: 800;
+    font-size: .95rem;
+    letter-spacing: -.01em;
+    color: var(--brand);
+    text-align: left !important;
+    word-break: normal !important;
+}
+
+.navbar .nav-link.text-dark {
+    color: var(--text) !important;
+    font-weight: 500;
+    border-radius: 8px;
+    transition: background .15s, color .15s;
+}
+
+    .navbar .nav-link.text-dark:hover {
+        background: var(--brand-soft);
+        color: var(--brand) !important;
+    }
+
+/* Footer fix: overrides Visual Studio's absolute-positioned footer */
+footer.footer {
+    position: static !important;
+    width: auto !important;
+    line-height: 1.5 !important;
+    white-space: normal !important;
+    padding: 1.25rem 0 !important;
+    margin-top: 2.5rem;
+    text-align: center;
+    font-size: .875rem;
+    color: var(--muted) !important;
+    border-color: var(--border) !important;
+}
+
+/* ---------- HOME: hero banner ---------- */
+main > .text-center.my-4 {
+    background: linear-gradient(135deg, var(--brand), var(--brand-2));
+    border-radius: 20px;
+    padding: 3rem 1.5rem;
+    margin: 1.25rem 0 2rem !important;
+    box-shadow: var(--shadow);
+}
+
+    main > .text-center.my-4 h1 {
+        color: #fff;
+        font-weight: 800;
+        letter-spacing: -.03em;
+    }
+
+    main > .text-center.my-4 .text-muted {
+        color: rgba(255, 255, 255, .88) !important;
+        margin-bottom: 0;
+    }
+
+/* ---------- HOME: classmate list (numbered cards) ---------- */
+.list-group {
+    gap: .6rem;
+    box-shadow: none !important;
+}
+
+.list-group-item {
+    display: flex;
+    align-items: center;
+    background: var(--surface);
+    color: var(--text);
+    border: 1px solid var(--border) !important;
+    border-radius: 14px !important;
+    padding: .85rem 1rem;
+    font-weight: 600;
+    transition: transform .15s ease, box-shadow .15s ease, border-color .15s ease;
+}
+
+.list-group-item-action::before {
+    content: attr(data-n); /* real number supplied by the view */
+    flex: 0 0 38px;
+    width: 38px;
+    height: 38px;
+    margin-right: .9rem;
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+    font-size: .85rem;
+    font-weight: 700;
+    color: #fff;
+    background: linear-gradient(135deg, var(--brand), var(--brand-2));
+}
+
+.list-group-item-action::after {
+    content: "\2192";
+    margin-left: auto;
+    color: var(--muted);
+    transition: transform .15s ease, color .15s ease;
+}
+
+.list-group-item-action:hover,
+.list-group-item-action:focus {
+    background: var(--surface);
+    color: var(--text);
+    border-color: var(--brand) !important;
+    transform: translateY(-3px);
+    box-shadow: var(--shadow);
+}
+
+    .list-group-item-action:hover::after {
+        transform: translateX(4px);
+        color: var(--brand);
+    }
+
+/* ---------- HOME: pagination ---------- */
+.pager-wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: .6rem;
+    margin: 1.5rem 0 .5rem;
+}
+
+.pager-info {
+    color: var(--muted);
+    font-size: .875rem;
+}
+
+.pagination {
+    gap: .35rem;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 0;
+}
+
+    .pagination .page-link {
+        min-width: 40px;
+        height: 40px;
+        display: grid;
+        place-items: center;
+        padding: 0 .75rem;
+        border: 1px solid var(--border) !important;
+        border-radius: 10px !important;
+        background: var(--surface);
+        color: var(--text);
+        font-weight: 600;
+        cursor: pointer;
+        transition: transform .15s ease, border-color .15s ease, color .15s ease;
+    }
+
+        .pagination .page-link:hover {
+            border-color: var(--brand) !important;
+            color: var(--brand);
+            transform: translateY(-2px);
+            background: var(--surface);
+        }
+
+    .pagination .page-item.active .page-link {
+        background: linear-gradient(135deg, var(--brand), var(--brand-2));
+        border-color: transparent !important;
+        color: #fff;
+    }
+
+    .pagination .page-item.disabled .page-link {
+        opacity: .45;
+        pointer-events: none;
+        background: var(--surface);
+    }
+
+/* ---------- PROFILE: header card ---------- */
+main > section.card {
+    background: var(--surface);
+    color: var(--text);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: var(--shadow) !important;
+}
+
+    main > section.card::before { /* gradient banner */
+        content: "";
+        display: block;
+        height: 120px;
+        background: linear-gradient(135deg, var(--brand), var(--brand-2));
+    }
+
+    main > section.card .card-body {
+        padding: 0 1.75rem 1.75rem;
+    }
+
+    main > section.card .row.align-items-center {
+        align-items: flex-start !important;
+    }
+
+    main > section.card img.rounded-circle {
+        margin-top: -75px;
+        border: 5px solid var(--surface);
+        background: var(--brand-soft);
+        box-shadow: 0 6px 18px rgba(0, 0, 0, .18);
+    }
+
+@media (min-width: 768px) {
+    main > section.card .col-md-9 {
+        padding-top: 1rem;
+    }
+}
+
+main > section.card h2 {
+    font-weight: 800;
+    letter-spacing: -.02em;
+}
+
+main > section.card p.text-primary {
+    color: var(--brand) !important;
+}
+
+/* pill buttons */
+.btn-sm {
+    border-radius: 999px;
+    padding: .4rem 1.05rem;
+    font-weight: 600;
+    transition: transform .15s ease, opacity .15s ease, background .15s ease;
+}
+
+    .btn-sm:hover {
+        transform: translateY(-1px);
+    }
+
+.btn.btn-dark {
+    background: var(--brand);
+    border-color: var(--brand);
+    color: #fff;
+}
+
+.btn.btn-primary {
+    background: #0a66c2;
+    border-color: #0a66c2;
+    color: #fff;
+}
+
+.btn.btn-outline-secondary {
+    color: var(--text);
+    border-color: var(--border);
+}
+
+    .btn.btn-outline-secondary:hover {
+        background: var(--brand-soft);
+        color: var(--brand);
+        border-color: var(--brand);
+    }
+
+/* skills */
+main > section.card h6 {
+    font-size: .75rem;
+    font-weight: 700;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    color: var(--muted);
+}
+
+.badge.bg-secondary {
+    background: var(--brand-soft) !important;
+    color: var(--brand) !important;
+    font-weight: 600;
+    padding: .5em .9em;
+    border-radius: 999px;
+}
+
+/* ---------- PROFILE: projects ---------- */
+main > section.my-4 h3 {
+    font-weight: 800;
+    letter-spacing: -.02em;
+    display: inline-block;
+    padding-bottom: .35rem;
+    border-bottom: 4px solid var(--brand);
+}
+
+main > section.my-4 .card {
+    background: var(--surface);
+    color: var(--text);
+    border: 1px solid var(--border);
+    border-top: 4px solid var(--brand);
+    border-radius: 16px;
+    box-shadow: none !important;
+    transition: transform .15s ease, box-shadow .15s ease;
+}
+
+    main > section.my-4 .card:hover {
+        transform: translateY(-4px);
+        box-shadow: var(--shadow) !important;
+    }
+
+main > section.my-4 .card-body {
+    padding: 1.25rem 1.25rem .5rem;
+}
+
+main > section.my-4 .card-title {
+    font-weight: 700;
+}
+
+main > section.my-4 .card-footer.bg-white {
+    background: transparent !important;
+    padding: .5rem 1.25rem 1.25rem;
+}
+
+/* stage badge (Prelim / Midterm / PreFinal / Final) */
+.badge.bg-info.text-dark {
+    background: var(--brand-soft) !important;
+    color: var(--brand) !important;
+    font-size: .7rem;
+    font-weight: 700;
+    letter-spacing: .07em;
+    text-transform: uppercase;
+    padding: .4em .7em;
+    border-radius: 6px;
+}
+
+/* tech-stack tags */
+.badge.bg-light.text-dark.border {
+    background: transparent !important;
+    color: var(--muted) !important;
+    border-color: var(--border) !important;
+    font-weight: 500;
+    border-radius: 999px;
+    margin-bottom: .25rem;
+}
+
+/* repo / demo buttons */
+.btn.btn-outline-dark {
+    color: var(--text);
+    border-color: var(--border);
+}
+
+    .btn.btn-outline-dark:hover {
+        background: var(--brand);
+        border-color: var(--brand);
+        color: #fff;
+    }
+
+.btn.btn-success {
+    border-radius: 999px;
+}
+
+/* ---------- Entrance animation ---------- */
+@keyframes rise {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: none;
+    }
+}
+
+main > * {
+    animation: rise .45s ease both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    main > * {
+        animation: none;
+    }
+
+    .list-group-item, .btn-sm, main > section.my-4 .card, .pagination .page-link {
+        transition: none;
+    }
 }

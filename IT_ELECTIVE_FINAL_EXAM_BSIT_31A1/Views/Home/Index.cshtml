@@ -9,15 +9,83 @@
 </div>
 
 <div class="row justify-content-center">
-    <div class="col-md-6">
-        <div class="list-group shadow-sm">
-            @foreach (var c in Model)
+    <div class="col-md-8 col-lg-6">
+        <div id="mate-list" class="list-group">
+            @for (int i = 0; i < Model.Count; i++)
             {
+                var c = Model[i];
                 <a class="list-group-item list-group-item-action"
-                       asp-controller="@c.ControllerName" asp-action="Index">
+                   data-n="@(i + 1)"
+                   asp-controller="@c.ControllerName" asp-action="Index">
                     @c.Name
                 </a>
             }
         </div>
+
+        <div class="pager-wrap">
+            <div id="pager-info" class="pager-info"></div>
+            <nav aria-label="Classmate pages">
+                <ul id="pager" class="pagination"></ul>
+            </nav>
+        </div>
     </div>
 </div>
+
+@section Scripts {
+    <script>
+        (function () {
+            const PAGE_SIZE = 10;                       // classmates per page
+            const items = Array.from(document.querySelectorAll('#mate-list > a'));
+            const pager = document.getElementById('pager');
+            const info  = document.getElementById('pager-info');
+            const totalPages = Math.max(1, Math.ceil(items.length / PAGE_SIZE));
+
+            // remember the page (so the Back button returns to the same page)
+            let page = parseInt((location.hash.match(/page=(\d+)/) || [])[1]) || 1;
+            page = Math.min(Math.max(page, 1), totalPages);
+
+            function pageItem(label, target, opts = {}) {
+                const li = document.createElement('li');
+                li.className = 'page-item' + (opts.active ? ' active' : '') + (opts.disabled ? ' disabled' : '');
+                const a = document.createElement('a');
+                a.className = 'page-link';
+                a.textContent = label;
+                a.setAttribute('role', 'button');
+                if (opts.aria) a.setAttribute('aria-label', opts.aria);
+                a.addEventListener('click', () => go(target));
+                li.appendChild(a);
+                return li;
+            }
+
+            function render() {
+                const start = (page - 1) * PAGE_SIZE;
+                const end = Math.min(start + PAGE_SIZE, items.length);
+
+                items.forEach((el, i) => el.style.display = (i >= start && i < end) ? '' : 'none');
+
+                info.textContent = items.length
+                    ? `Showing ${start + 1}–${end} of ${items.length} classmates`
+                    : 'No classmates yet.';
+
+                pager.innerHTML = '';
+                if (totalPages <= 1) return;
+
+                pager.appendChild(pageItem('‹ Prev', page - 1, { disabled: page === 1, aria: 'Previous page' }));
+                for (let p = 1; p <= totalPages; p++) {
+                    pager.appendChild(pageItem(p, p, { active: p === page }));
+                }
+                pager.appendChild(pageItem('Next ›', page + 1, { disabled: page === totalPages, aria: 'Next page' }));
+            }
+
+            function go(p) {
+                if (p < 1 || p > totalPages) return;
+                page = p;
+                history.replaceState(null, '', '#page=' + page);
+                render();
+                document.getElementById('mate-list').scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+
+            render();
+        })();
+    </script>
+}

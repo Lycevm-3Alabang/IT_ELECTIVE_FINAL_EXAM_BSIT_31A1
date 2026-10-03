@@ -13,7 +13,7 @@ namespace IT_ELECTIVE_FINAL_EXAM_BSIT_31A1.Controllers
                 FullName = "Jonnidel Reales",
                 Tagline = "Aspiring Software Developer",
                 Course = "BS Information Technology",
-                Section = "3A",
+                Section = "31E1",
                 Bio = "I am a BS Information Technology student interested in programming, networking, and technology. I enjoy building systems and applications that help me improve my skills in software development. My goal is to become a professional software developer in the future.",
                 PhotoPath = "~/images/Realess.png",
                 Email = "your-email@email.com",
