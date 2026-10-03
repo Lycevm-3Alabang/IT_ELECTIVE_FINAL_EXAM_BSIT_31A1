@@ -10,4 +10,8 @@
     <Folder Include="Views\Photos\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Include="wwwroot\images\ayen.jpg" />
+  </ItemGroup>
+
 </Project>
