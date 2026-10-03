@@ -18,7 +18,7 @@ namespace IT_ELECTIVE_FINAL_EXAM_BSIT_31A1.Controllers
                 PhotoPath = "~/images/juandelacruz.jpg",
                 Email = "juan@email.com",
                 GitHubUrl = "https://github.com/your-username",
-                LinkedInUrl = "https://linkedin.com/in/your-profile",   // or null
+                LinkedInUrl = "https://www.linkedin.com/in/judiel-meguiel-mescallado-0ba736382/",   // or null
                 Skills = new List<string> { "C#", "ASP.NET Core MVC", "SQL", "HTML/CSS", "Git" },
 
                 // Keep these in Prelim → Final order
