@@ -13,7 +13,7 @@ namespace IT_ELECTIVE_FINAL_EXAM_BSIT_31A1.Controllers
                 FullName = "Sho Uno Sabesaje",
                 Tagline = "Aspiring Full-Stack Developer",
                 Course = "BS Information Technology",
-                Section = "3A",
+                Section = "31E1",
                 Bio = "I am a dedicated software developer passionate about building clean, efficient applications and solving complex problems.",
                 PhotoPath = "~/images/Sabesaje.jpg",
                 Email = "constantinoshouno@gmail.com",
