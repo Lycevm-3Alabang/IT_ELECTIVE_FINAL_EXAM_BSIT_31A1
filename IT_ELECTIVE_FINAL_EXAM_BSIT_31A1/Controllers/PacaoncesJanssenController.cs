@@ -13,9 +13,9 @@ namespace IT_ELECTIVE_FINAL_EXAM_BSIT_31A1.Controllers
                 FullName = "Pacaonces Janssen",
                 Tagline = "Aspiring Full-Stack Developer",
                 Course = "BS Information Technology",
-                Section = "3A",
-                Bio = "Write 2–4 sentences about yourself: your interests, what you enjoy building, and your goals.",
-                PhotoPath = "~/images/juandelacruz.jpg",
+                Section = "BSIT31E1",
+                Bio = "I like building systems and my goal is to be a full-stack developer.",
+                PhotoPath = "~/images/janssen.jpg",
                 Email = "janssen.m.pacaonces@gmail.com",
                 GitHubUrl = "https://github.com/your-username",
                 LinkedInUrl = "https://linkedin.com/in/your-profile",   // or null
@@ -26,29 +26,59 @@ namespace IT_ELECTIVE_FINAL_EXAM_BSIT_31A1.Controllers
                 {
                     new ProjectItem
                     {
-                        Title = "Prelim Project Title",
+                        Title = "IT_ELECTIVE_Prelim_Assignment_One_Grading_Calculator",
                         Stage = ProjectStage.Prelim,
-                        RepoUrl = "https://github.com/your-username/prelim-repo",
-                        Description = "One or two sentences on what it does.",
+                        RepoUrl = "https://github.com/jpacaonces/ite-two-prelim-assignment-one",
+                        Description = "This project is a grading system calculator using MVC.",
                         TechStack = new List<string> { "C#", "Console" }
                     },
+
                     new ProjectItem
                     {
-                        Title = "Midterm Project Title",
-                        Stage = ProjectStage.Midterm,
-                        RepoUrl = "https://github.com/your-username/midterm-repo",
-                        Description = "One or two sentences on what it does.",
-                        TechStack = new List<string> { "C#", "WinForms" }
+                        Title = "IT_ELECTIVE_Prelim_Assignment_Two_File Ingestion Engine",
+                        Stage = ProjectStage.Prelim,
+                        RepoUrl = "https://github.com/jpacaonces/ite-two-prelim-assignment-two.",
+                        Description = "This MVC project demonstrates file reading.",
+                        TechStack = new List<string> { "C#", "Console" }
                     },
+
                     new ProjectItem
                     {
-                        Title = "Final Project Title",
-                        Stage = ProjectStage.Final,
-                        RepoUrl = "https://github.com/your-username/final-repo",
-                        LiveUrl = null,   // add a deployed link if you have one
-                        Description = "One or two sentences on what it does.",
-                        TechStack = new List<string> { "ASP.NET Core MVC", "SQL Server" }
-                    }
+                        Title = "IT_ELECTIVE_2_MIDTERM_EXAM",
+                        Stage = ProjectStage.Midterm,
+                        RepoUrl = "https://github.com/jpacaonces/IT_ELECTIVE_2_MIDTERM_EXAM_4_janssenpacaonces",
+                        Description = "Database creation with MVC.",
+                        TechStack = new List<string> { "C#", "ASP.NET Core MVC" }
+                    },
+
+                    new ProjectItem
+                    {
+                        Title = "IT_ELECTIVE_2_MIDTERM_Q3",
+                        Stage = ProjectStage.Midterm,
+                        RepoUrl = "https://github.com/jpacaonces/IT_ELECTIVE_2_MIDTERM_Q3",
+                        Description = "Login Page project with MVC.",
+                        TechStack = new List<string> { "C#", "ASP.NET Core MVC" }
+                    },
+
+                    new ProjectItem
+                    {
+                        Title = "IT_ELECTIVE_2_BSIT31E1_PREFINAL_EXAM",
+                        Stage = ProjectStage.Midterm,
+                        RepoUrl = "https://github.com/jpacaonces/IT_ELECTIVE_2_BSIT31E1_PREFINAL_EXAM_Pacaonces_Janssen",
+                        Description = "Examination with question and answers using MVC.",
+                        TechStack = new List<string> { "C#", "ASP.NET Core MVC" }
+                    },
+
+                    new ProjectItem
+                    {
+                        Title = "IT_ELECTIVE_2_BSIT31E1_PREFINAL_EXAM",
+                        Stage = ProjectStage.Midterm,
+                        RepoUrl = "https://github.com/jpacaonces/IT_ELECTIVE_2_MIDTERM_Q3",
+                        Description = "Login Page project with MVC.",
+                        TechStack = new List<string> { "C#", "ASP.NET Core MVC" }
+                    },
+
+                  
                 }
             };
 
