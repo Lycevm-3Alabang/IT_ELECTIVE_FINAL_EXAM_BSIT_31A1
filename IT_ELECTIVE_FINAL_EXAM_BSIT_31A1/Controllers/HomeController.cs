@@ -1,32 +1,27 @@
 using IT_ELECTIVE_FINAL_EXAM_BSIT_31A1.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
+using System.Reflection;
 
 namespace IT_ELECTIVE_FINAL_EXAM_BSIT_31A1.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
-
-        public HomeController(ILogger<HomeController> logger)
-        {
-            _logger = logger;
-        }
-
         public IActionResult Index()
         {
-            return View();
-        }
+            var classmates = typeof(HomeController).Assembly.GetTypes()
+                .Where(t => typeof(Controller).IsAssignableFrom(t) && !t.IsAbstract)
+                .Select(t => new { Type = t, Attr = t.GetCustomAttribute<ClassmateAttribute>() })
+                .Where(x => x.Attr != null)
+                .Select(x => new ClassmateListItem
+                {
+                    Name = x.Attr!.Name,
+                    ControllerName = x.Type.Name.Replace("Controller", "")
+                })
+                .OrderBy(c => c.Name, StringComparer.OrdinalIgnoreCase)   // alphabetical
+                .ToList();
 
-        public IActionResult Privacy()
-        {
-            return View();
-        }
-
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
-        {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+            return View(classmates);
         }
     }
 }
