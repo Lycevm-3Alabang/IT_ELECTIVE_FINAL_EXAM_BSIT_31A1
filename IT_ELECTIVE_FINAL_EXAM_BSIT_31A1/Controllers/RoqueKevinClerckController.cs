@@ -3,14 +3,14 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace IT_ELECTIVE_FINAL_EXAM_BSIT_31A1.Controllers
 {
-    [Classmate("Dela Cruz, Juan (TEMPLATE)")]   // shown on the Home list; use "Last, First" so sorting is by surname
-    public class JuanDelaCruzController : Controller
+    [Classmate("Roque, Kevin Clerck")]   // shown on the Home list; use "Last, First" so sorting is by surname
+    public class RoqueKevinClerckController : Controller
     {
         public IActionResult Index()
         {
             var profile = new ClassmateProfile
             {
-                FullName = "Juan Dela Cruz (EXAMPLE)",
+                FullName = "Kevin Clerck Roque",
                 Tagline = "Aspiring Full-Stack Developer",
                 Course = "BS Information Technology",
                 Section = "3A",
