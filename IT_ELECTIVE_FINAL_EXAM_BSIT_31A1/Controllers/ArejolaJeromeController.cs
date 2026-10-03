@@ -52,7 +52,15 @@ namespace IT_ELECTIVE_FINAL_EXAM_BSIT_31A1.Controllers
                         " It presents a dynamic interactive dashboard containing 20 prefinal examination questions, multiple-choice options, correct answers, and explanations.",
                         TechStack = new List<string> { "C#", "WinForms" }
                     },
-                    
+                    new ProjectItem
+                    {
+                        Title = "Final Project Title",
+                        Stage = ProjectStage.Final,
+                        RepoUrl = "https://github.com/your-username/final-repo",
+                        LiveUrl = null,   // add a deployed link if you have one
+                        Description = "One or two sentences on what it does.",
+                        TechStack = new List<string> { "ASP.NET Core MVC", "SQL Server" }
+                    }
                 }
             };
 
